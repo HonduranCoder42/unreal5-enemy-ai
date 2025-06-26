@@ -150,36 +150,6 @@ int ADN_AIDirector_v1_VM::GetCurrentRoomDifficulty()
 	
 }
 
-/*int ADN_AIDirector_v1_VM::GetCurrentIntegrityDifficulty()
-{
-	int IntegrityDifficulty = 0;
-	float CurrentDamage = 0.0f;
-	
-	if (CurrentDamage < 200.0f)
-	{
-		IntegrityDifficulty = 1;
-	}
-	else if (CurrentDamage < 400.0f)
-	{
-		IntegrityDifficulty = 2;
-	}
-	else if (CurrentDamage < 600.0f)
-	{
-		IntegrityDifficulty = 3;
-	}
-	else if (CurrentDamage < 800.0f)
-	{
-		IntegrityDifficulty = 4;
-	}
-	else
-	{
-		IntegrityDifficulty = 5;
-	}
-	
-	UE_LOG(LogTemp, Warning, TEXT("The current integrity difficulty is: %d (DIRECTOR)"), IntegrityDifficulty);
-	return IntegrityDifficulty;
-}*/
-
 void ADN_AIDirector_v1_VM::UpdateTimeDifficulty()
 {
 	++TimeDifficulty;
@@ -191,9 +161,6 @@ void ADN_AIDirector_v1_VM::AdjustDifficulty()
 {
 	CurrentDifficulty = 1;
 	int RoomDiff = GetCurrentRoomDifficulty();
-	//int TimeDiff = TimeDifficulty;
-
-	//if (int DifficultySum = RoomDiff + TimeDiff; DifficultySum <= 2)
 	if (RoomDiff == 1)
 	{
 		CurrentDifficulty = 5;
@@ -214,7 +181,6 @@ void ADN_AIDirector_v1_VM::AdjustDifficulty()
 	{
 		CurrentDifficulty = 1;
 	}
-	//UE_LOG(LogTemp, Warning, TEXT("Room Difficulty: %d, Time Difficulty: %d"), RoomDiff, TimeDiff);
 	UE_LOG(LogTemp, Warning, TEXT("Room Difficulty: %d"), RoomDiff);
 	UE_LOG(LogTemp, Warning, TEXT("The current difficulty is: %d (DIRECTOR)"), CurrentDifficulty);
 
