@@ -58,9 +58,6 @@ public:
 	UFUNCTION()
 	int GetCurrentRoomDifficulty();
 
-/*	UFUNCTION()
-	int GetCurrentIntegrityDifficulty();*/
-
 	UFUNCTION()
 	void UpdateTimeDifficulty();
 	
