@@ -85,19 +85,6 @@ ASub_CharlieAIController_v1_VM::ASub_CharlieAIController_v1_VM(FObjectInitialize
 void ASub_CharlieAIController_v1_VM::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
-	/*
-	if(ASub_Charlie_v1_VM* const npc = Cast<ASub_Charlie_v1_VM>(InPawn))
-	{
-		if (UBehaviorTree* const tree = npc->GetBehaviorTree())
-		{
-			UBlackboardComponent* b;
-			UseBlackboard(tree->BlackboardAsset, b);
-			Blackboard = b;
-			RunBehaviorTree(tree);
-		}
-		CharliePatrolTimer = npc->PatrolTimer;
-	}
-	BeginPatrolTimer(s); */
 }
 
 
@@ -165,23 +152,8 @@ void ASub_CharlieAIController_v1_VM::OnTargetDetected()
 	UE_LOG(LogTemp, Warning, TEXT("OnTargetDetected Ran"));
 	if (SenseSub == true)
 	{ 
-		/*	int32 RandomValue = FMath::RandRange(0, 10);
-			UE_LOG(LogTemp, Warning, TEXT("RandomValue == %d"), RandomValue);
-			
-			GetBlackboardComponent()->SetValueAsBool("SubDetected", true);
-			if (RandomValue % 2 == 0)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("AttackSub Selected!"));
-				MoveToSub(SubmarineObj);
-			}
-			else if (RandomValue % 2 == 1)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("PassSub Selected!"));
-				MoveOverSub(SubmarineObj);
-			} */
 		UE_LOG(LogTemp, Warning, TEXT("SenseSub is TRUE"));
 		GetBlackboardComponent()->SetValueAsBool("SubDetected", true);
-		//GetWorldTimerManager().SetTimer(DetectTimerHandle, this, &ASub_CharlieAIController_v1_VM::AttackSub, 7.0f, false);
 		AttackSub();
 	}
 	else
